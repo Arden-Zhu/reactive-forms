@@ -1,6 +1,11 @@
 <h2>Hero Detail</h2>
-<h3><i>Just a FormControl</i></h3>
-<label class="center-block">
-  Name:
-  <input class="form-control" [formControl]="name">
-</label>
+<h3><i>FormControl in a FormGroup</i></h3>
+<form [formGroup]="heroForm">
+  <div class="form-group">
+    <label class="center-block">
+      Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+</form>
+<div>Form Value: {{heroForm.value | json}}</div>
