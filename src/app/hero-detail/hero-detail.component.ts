@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { states, Hero, Address } from '../data-model'
 @Component({
@@ -6,7 +6,7 @@ import { states, Hero, Address } from '../data-model'
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
 })
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnChanges {
   heroForm: FormGroup;
   states = states;
   @Input() hero: Hero;
@@ -22,5 +22,16 @@ export class HeroDetailComponent {
       power: '',
       sidekick: ''
     })
+  }
+
+  ngOnChanges(): void {
+    this.rebuildForm();
+  }
+
+  rebuildForm() {
+    this.heroForm.reset({
+      name: this.hero.name,
+      address: this.hero.addresses[0] || new Address(),
+    });
   }
 }
