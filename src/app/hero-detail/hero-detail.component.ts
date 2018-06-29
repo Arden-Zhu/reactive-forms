@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { states, Hero, Address } from '../data-model'
 @Component({
@@ -9,6 +9,7 @@ import { states, Hero, Address } from '../data-model'
 export class HeroDetailComponent {
   heroForm: FormGroup;
   states = states;
+  @Input() hero: Hero;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
