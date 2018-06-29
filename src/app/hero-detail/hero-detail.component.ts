@@ -49,4 +49,8 @@ export class HeroDetailComponent implements OnChanges {
   addLair() {
     this.secretLairs.push(this.fb.group(new Address()));
   }
+
+  removeLair(index: number) {
+    this.secretLairs.removeAt(index);
+  }
 }

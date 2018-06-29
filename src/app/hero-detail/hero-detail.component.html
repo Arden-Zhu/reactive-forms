@@ -10,6 +10,7 @@
   <div formArrayName="secretLairs" class="well well-lg">
     <div *ngFor="let address of secretLairs.controls; let i=index" [formGroupName]="i">
       <h4>Secret Lair #{{i+1}}</h4>
+      <button (click)="removeLair(i)" type="button">Remove</button>
       <div style="margin-left:1em;">
         <div class="form-group">
           <label class="center-block">
