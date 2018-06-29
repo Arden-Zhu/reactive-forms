@@ -17,10 +17,12 @@ export class HeroDetailComponent {
   createForm(): any {
     this.heroForm = this.fb.group({
       name: ['', Validators.required],
-      street: '',
-      city: '',
-      state: '',
-      zip: '',
+      address: this.fb.group({
+        street: '',
+        city: '',
+        state: '',
+        zip: '',
+      }),
       power: '',
       sidekick: ''
     })
